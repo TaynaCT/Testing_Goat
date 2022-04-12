@@ -25,4 +25,4 @@ jobs:
         project_name: Testing_Goat_GitHubAction
         cx_tenant: ps_tenant
         cx_client_id: ${{ secrets.CLIENT_ID }}
-        cx_client_secrete: ${{ secrets.CLIENT_SECRET }}
+        cx_client_secret: ${{ secrets.CLIENT_SECRET }}
