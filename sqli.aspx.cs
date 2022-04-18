@@ -44,11 +44,13 @@ namespace CxCE_Demo
 
         private int getAge(string name)
         {
-            SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=" + Constants.DB_PASSWORD + ";");
+            SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=" + Constants.DB_PASSWORD + ";");            
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
-
-            cmd.CommandText = "SELECT AGE FROM Users WHERE NAME = '" + name + "'";
+            
+            //cmd.CommandText = "SELECT AGE FROM Users WHERE NAME = '" + name + "'";
+            cmd.CommandText = "SELECT AGE FROM Users WHERE NAME = @name";
+            cmd.Parameters.AddWithValue("@name", name);            
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
