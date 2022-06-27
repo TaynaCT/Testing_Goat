@@ -19,15 +19,14 @@ namespace CxCE_Demo
         private void getName(string database)
         {
             string username = "No name";
-            SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=" + database + ";User Id=myUsername;Password=" + Constants.DB_PASSWORD + ";");
-            SqlCommand cmd = new SqlCommand();
+          
+  //SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=" + database + ";User Id=myUsername;Password=" + Constants.DB_PASSWORD + ";");
+            SqlConnection conn = new SqlConnection("Server=myServerAddress;Database= @database;User Id=myUsername;Password=@db_password;");
+            SqlCommand cmd = new SqlCommand();            
             SqlDataReader reader;
 
-            cmd.CommandText = "SELECT NAME FROM Users WHERE ID = 1000;";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = conn;
-
-            conn.Open();
+            cmd.Parameters.AddWithValue("@database", database);
+            cmd.Parameters.AddWithValue("@db_password", Constants.DB_PASSWORD);
 
             reader = cmd.ExecuteReader();
             if (reader.HasRows)
