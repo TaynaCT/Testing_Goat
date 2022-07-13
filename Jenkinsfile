@@ -36,7 +36,7 @@ pipeline {
                             osaInstallBeforeScan         : false,
                             password                     : "${secrets.SAST_USER_PASSWORD}",
                             username                     : "${secrets.SAST_USER}",
-                            serverUrl                    : "${secrets.SAST_URL}"",
+                            serverUrl                    : "${secrets.SAST_URL}",
                             preset                       : '36',
                             projectName                  : 'jenkins_pipes',
                             sastEnabled                  : true,                         
