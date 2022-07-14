@@ -1,11 +1,16 @@
 /*
-Documentation reference:
-https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+This is a example of how to implement the CxSAST scan using the jenkins pipelines scripting.
 */
 
 pipeline { 
     agent any
     environment {
+        /*
+            Those variables were configured as a Text secret under the Jenkins Credentials, to use an example that the CxSAST step can accept plaintext for the password, user, and URL parameters.
+            
+            Please refer to the Jenkins documentation below to see other options to create secrets or credentials for the Jenkins pipelines.
+            https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+        */
         SAST_USER_PASSWORD = credentials('SAST_USER_PASSWORD')
         SAST_USER_NAME = credentials('SAST_USER_NAME')
         SAST_URL = credentials('SAST_URL')
@@ -47,7 +52,7 @@ pipeline {
                             groupId: '1',
                             password: SAST_USER_PASSWORD,
                             preset: '36',
-                            projectName: 'Test',
+                            projectName: 'jenkins_pipes',
                             sastEnabled: true,
                             serverUrl: SAST_URL,
                             sourceEncoding: '1',
