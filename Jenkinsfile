@@ -1,7 +1,14 @@
+/*
+Documentation reference:
+https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+*/
+
 pipeline { 
     agent any
     environment {
-        GIT_TOKEN = credentials('GIT_TOKEN')        
+        SAST_USER_PASSWORD = credentials('SAST_USER_PASSWORD')
+        SAST_USER_NAME = credentials('SAST_USER_NAME')
+        SAST_URL = credentials('SAST_URL')
     }
     stages {
         stage('Git') {
@@ -34,9 +41,9 @@ pipeline {
                             osaArchiveIncludePatterns    : '*.zip, *.war, *.ear, *.tgz',
                             osaEnabled                   : true,
                             osaInstallBeforeScan         : false,
-                            password                     : "${GIT_TOKEN.secrets.SAST_USER_PASSWORD}",
-                            username                     : "${GIT_TOKEN.secrets.SAST_USER}",
-                            serverUrl                    : "${GIT_TOKEN.secrets.SAST_URL}",
+                            password                     : SAST_USER_PASSWORD,
+                            username                     : SAST_USER_NAME,
+                            serverUrl                    : SAST_URL,
                             preset                       : '36',
                             projectName                  : 'jenkins_pipes',
                             sastEnabled                  : true,                         
