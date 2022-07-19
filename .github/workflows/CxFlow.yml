@@ -1,0 +1,83 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CxFlow
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch: 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          
+      - name: Checkmarx CxFlow Action
+        # You may pin to the exact commit or the version.
+        # uses: checkmarx-ts/checkmarx-cxflow-github-action@49d8269b14ca87910ba003d47a31fa0c7a11f2fe
+        uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.5
+        with:
+          # Provide Checkmarx URL
+          #checkmarx_url: # default is 
+          ## Select a Checkmarx Team
+          #team: # default is /CxServer/SP/Company
+          ## Provide Checkmarx Username
+          #checkmarx_username: # default is 
+          ## Provide Checkmarx Password
+          #checkmarx_password: # default is 
+          ## Provide Checkmarx Client Secret
+          #checkmarx_client_secret: # default is 
+          ## Select a Checkmarx Project
+          project: "Testing_GOAT_CxFLow"
+          ## Select an Application Name used by downstream bug tracker systems
+          app: "Testing_GOAT_CxFLow"
+          ## Select a Checkmarx Preset
+          #preset: # optional, default is High and Medium
+          ## Break build based on Checkmarx findings?
+          #break_build: # optional
+          ## Bug tracker for the scan results.
+          #bug_tracker: # optional, default is Sarif
+          ## Incremental Scans?
+          #incremental: # optional, default is true
+          ## Additional CLI parameters
+          #params: # optional, default is 
+          ## GitHub API Token
+          #github_token: # optional, default is ${{ github.token }}
+          ## Vulnerability Scanners (sast, sca, cxgo)
+          #scanners: # default is 
+          # Provide SCA API URL
+          sca_api_url:  https://api-sca.checkmarx.net
+          # Provide SCA APP URL
+          sca_app_url: https://sca.checkmarx.net
+          # Provide SCA Access Control URL
+          sca_access_control_url:  https://platform.checkmarx.net
+          # Provide SCA Tenant
+          sca_tenant: ${{ SCA_TENANT }}
+          # Provide SCA Username
+          sca_username: ${{ SCA_USER }} 
+          # Provide SCA Password
+          sca_password: ${{ SCA_USER_PASSWORD }}
+          # Jira URL
+          jira_url:  ${{ JIRA_URL }}
+          # Jira Username
+          jira_username: ${{ JIRA_USER }}
+          # Jira Token
+          jira_token: ${{ JIRA_TOKEN }}         
+          params: --config=cx.config
+        
