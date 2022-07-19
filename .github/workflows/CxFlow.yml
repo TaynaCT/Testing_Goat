@@ -68,16 +68,16 @@ jobs:
           # Provide SCA Access Control URL
           sca_access_control_url:  https://platform.checkmarx.net
           # Provide SCA Tenant
-          sca_tenant: ${{ SCA_TENANT }}
+          sca_tenant: ${{ secrets.SCA_TENANT }}
           # Provide SCA Username
-          sca_username: ${{ SCA_USER }} 
+          sca_username: ${{ secrets.SCA_USER }} 
           # Provide SCA Password
-          sca_password: ${{ SCA_USER_PASSWORD }}
+          sca_password: ${{ secrets.SCA_USER_PASSWORD }}
           # Jira URL
-          jira_url:  ${{ JIRA_URL }}
+          jira_url:  ${{ secrets.JIRA_URL }}
           # Jira Username
-          jira_username: ${{ JIRA_USER }}
+          jira_username: ${{ secrets.JIRA_USER }}
           # Jira Token
-          jira_token: ${{ JIRA_TOKEN }}         
+          jira_token: ${{ secrets.JIRA_TOKEN }}         
           params: --config=cx.config
         
