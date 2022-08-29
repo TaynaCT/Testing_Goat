@@ -37,7 +37,7 @@ jobs:
           # Provide Checkmarx URL
           #checkmarx_url: # default is 
           # Select a Checkmarx Team
-          team: /CxServer          
+          #team: /CxServer          
           # Select a Checkmarx Project
           project: "Testing_Goat"
           # Select an Application Name used by downstream bug tracker systems
