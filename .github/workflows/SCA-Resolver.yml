@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Set SCA Resolver Enviroment
-        run: "wget https://sca-downloads.s3.amazonaws.com/cli/1.10.4/ScaResolver-linux64.tar && tar -xzvf ScaResolver-linux64.tar.gz && rm -rf ScaResolver-linux64.tar.gz"
+        run: "wget https://sca-downloads.s3.amazonaws.com/cli/1.10.4/ScaResolver-linux64.tar.gz && tar -xzvf ScaResolver-linux64.tar.gz && rm -rf ScaResolver-linux64.tar.gz"
         
 
       # Runs a set of commands using the runners shell
