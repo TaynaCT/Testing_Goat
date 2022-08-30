@@ -31,5 +31,7 @@ jobs:
 
       # Runs SCA resolver commands insad o the Unbunto shell
       #Refer to: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html
+      #Exite codes: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html#UUID-af718204-6dfc-2b27-439e-419b9157d364_id_RunningScansUsingCheckmarxSCAResolver-ExitCodes
       - name: SCA Resolver
         run: "./ScaResolver -h" 
+        #./ScaResolver -s /Users/DemoUser/MyApp -n MyApp -a Checkmarx -u jack -p 'demo123!'
