@@ -34,10 +34,7 @@ jobs:
       
       - name: Validate Scala
         run: "sbt --script-version"
-        
-      - name: Echo viriables
-        run: "echo GITHUB_REPOSITORY ${{ github.repository }} GITHUB_WORKSPACE ${{ github.workspace }}" 
-
+     
       # Runs SCA resolver commands insad o the Unbuntu shell
       #Refer to: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html
       #Exite codes: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html#UUID-af718204-6dfc-2b27-439e-419b9157d364_id_RunningScansUsingCheckmarxSCAResolver-ExitCodes
@@ -45,5 +42,5 @@ jobs:
       
       - name: SCA Resolver        
         #run: "echo  ${{ github.GITHUB_REPOSITORY }} && ./ScaResolver -s '${{ github.GITHUB_WORKSPACE }}' -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
-        run: "./ScaResolver -s '/home/runner/work/Testing_Goat/Testing_Goat' -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
+        run: "./ScaResolver -s '${{ github.workspace }}' -n ' ${{ github.repository }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
         
