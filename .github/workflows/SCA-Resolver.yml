@@ -42,5 +42,5 @@ jobs:
       
       - name: SCA Resolver        
         #run: "echo  ${{ github.GITHUB_REPOSITORY }} && ./ScaResolver -s '${{ github.GITHUB_WORKSPACE }}' -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
-        run: "echo  ${{ github.GITHUB_REPOSITORY }} && ./ScaResolver -s '/home/runner/work/Testing_Goat/Testing_Goat' -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
+        run: "echo  ${{ env.GITHUB_REPOSITORY }} && ./ScaResolver -s '/home/runner/work/Testing_Goat/Testing_Goat' -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}' " 
         
