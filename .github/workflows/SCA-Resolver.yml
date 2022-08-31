@@ -36,7 +36,7 @@ jobs:
         run: "sbt --script-version"
         
       - name: Echo viriables
-        run: "echo ${{ GITHUB_REPOSITORY }} ${{ GITHUB_WORKSPACE }} { GITHUB_REPOSITORY }}" 
+        run: "echo GITHUB_REPOSITORY ${{ github.repository }} ${{ GITHUB_WORKSPACE }} { GITHUB_REPOSITORY }}" 
 
       # Runs SCA resolver commands insad o the Unbuntu shell
       #Refer to: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html
