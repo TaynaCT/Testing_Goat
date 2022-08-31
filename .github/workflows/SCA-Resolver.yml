@@ -40,6 +40,6 @@ jobs:
       #Exite codes: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html#UUID-af718204-6dfc-2b27-439e-419b9157d364_id_RunningScansUsingCheckmarxSCAResolver-ExitCodes
       #For the Git hub viriables, refer to https://docs.github.com/en/actions/learn-github-actions/environment-variables
       
-      - name: SCA Resolver
-        run: "./ScaResolver -s ${{ github.GITHUB_WORKSPACE }} -n ${{ github.GITHUB_REPOSITORY }} -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}'" 
+      - name: SCA Resolver        
+        run: "echo  github.GITHUB_REPOSITORY && ./ScaResolver -s ${{ github.GITHUB_WORKSPACE }} -n '${{ github.GITHUB_REPOSITORY }}' -a ${{ secrets.SCA_TENANT }} -u ${{ secrets.SCA_USER }} -p '${{ secrets.SCA_USER_PASSWORD }}'" 
         
