@@ -28,8 +28,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Set SCA Resolver Enviroment
         run: "wget https://sca-downloads.s3.amazonaws.com/cli/1.10.4/ScaResolver-linux64.tar.gz && tar -xzvf ScaResolver-linux64.tar.gz && rm -rf ScaResolver-linux64.tar.gz"
+      
+      - name: Set Scala Packges
+        run: "# remove old Bintray repo file && sudo rm -f /etc/yum.repos.d/bintray-rpm.repo || true && curl -L https://www.scala-sbt.org/sbt-rpm.repo > sbt-rpm.repo && sudo mv sbt-rpm.repo /etc/yum.repos.d/ && sudo yum install sbt"
+      
+      - name: Validate Scala
+        run: "sbt --script-version"
 
-      # Runs SCA resolver commands insad o the Unbunto shell
+      # Runs SCA resolver commands insad o the Unbuntu shell
       #Refer to: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html
       #Exite codes: https://checkmarx.com/resource/documents/en/34965-19199-running-scans-using-checkmarx-sca-resolver.html#UUID-af718204-6dfc-2b27-439e-419b9157d364_id_RunningScansUsingCheckmarxSCAResolver-ExitCodes
       - name: SCA Resolver
