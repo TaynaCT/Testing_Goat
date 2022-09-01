@@ -79,5 +79,5 @@ jobs:
           jira_username: ${{ secrets.JIRA_USER }}
           # Jira Token
           jira_token: ${{ secrets.JIRA_TOKEN }}         
-          params: --config=cx.config
+          params: --config=cx.config --sast.forceScan=true
         
