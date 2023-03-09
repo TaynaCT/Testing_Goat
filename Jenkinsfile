@@ -27,7 +27,7 @@ pipeline {
                     step([
                             $class: 'CxScanBuilder', 
                             comment: '', 
-                            configAsCode: true, 
+                            configAsCode: false, 
                             credentialsId: 'RemoteSAST', 
                             customFields: '', 
                             excludeFolders: '', 
