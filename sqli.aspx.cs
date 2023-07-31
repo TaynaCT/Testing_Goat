@@ -26,7 +26,9 @@ namespace CxCE_Demo
             SqlDataReader reader;
 
             //cmd.CommandText = "SELECT NAME FROM Users WHERE ID = " + ID;
-            cmd.CommandText = "SELECT NAME FROM Users WHERE ID = @id";
+            //This shold no be here 
+            //TODO:Fix
+            cmd.CommandText = "SELECT NAME FROM Users WHERE ID = @id";                        
             cmd.Parameters.AddWithValue("@id", ID);
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
@@ -46,9 +48,12 @@ namespace CxCE_Demo
 
         private int getAge(string name)
         {
+            
             SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=" + Constants.DB_PASSWORD + ";");            
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
+            
+            Console.WriteLine(Constants.DB_PASSWORD);
             
             //cmd.CommandText = "SELECT AGE FROM Users WHERE NAME = '" + name + "'";
             cmd.CommandText = "SELECT AGE FROM Users WHERE NAME = @name";
