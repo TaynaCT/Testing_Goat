@@ -1,0 +1,34 @@
+#Documentation at https://checkmarx.com/resource/documents/en/34965-68707-quick-start-guide---checkmarx-one-github-action.html
+name: Checkmarx One Scan
+on:
+  #push:
+  #  branches:
+  #    - main
+  #    - master
+  #    - dev
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkmarx One CLI Action
+        uses: checkmarx/ast-github-action@main #Github Action version
+        with:
+          project_name: ${{ github.repository }}
+          cx_tenant: ${{ secrets.CXONE_TENANT }}
+          base_uri: https://eu.ast.checkmarx.net
+          cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
+          branch: ${{ github.ref }}
+          additional_params:  --scan-types sast           
+                              --sast-preset-name "Checkmarx Express"            
+                              #--file-filter '!*README.md,!*app-hello-world*.js'
+                              #--file-filter '!*README.md,!*app/*hello-world.js'
+          
+          
+          
+          #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter '!*README.md,!app,!**/**/app/app-hello-world.js'
