@@ -24,9 +24,12 @@ jobs:
           cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
           branch: ${{ github.ref }}
-          additional_params:  --scan-types sast           
+          additional_params:  --scan-types sast,sca
                               --sast-preset-name "Checkmarx Express"            
-                              #--file-filter '!*README.md,!*app-hello-world*.js'
+                              --sast-filter '!*README.md,!*app-hello-world*.js,!.github/workflows, !*.txt, !*.png, !lib/**'
+                              --sca-filter 'packagers.config,lib/**'
+                          
+                              
                               #--file-filter '!*README.md,!*app/*hello-world.js'
           
           
