@@ -28,6 +28,7 @@ jobs:
                               --sast-preset-name "Checkmarx Express"            
                               --sast-filter '!*README.md,!*app-hello-world*.js,!.github/workflows, !*.txt, !*.png, !lib/**'
                               --sca-filter 'packagers.config,lib/**'
+                              --debug
                           
                               
                               #--file-filter '!*README.md,!*app/*hello-world.js'
