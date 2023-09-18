@@ -26,7 +26,7 @@ jobs:
           branch: ${{ github.ref }}
           additional_params:  --scan-types sast,sca
                               --sast-preset-name "Checkmarx Express"            
-                              --sast-filter '!*README.md,!*app-hello-world*.js,!.github/workflows, !*.txt, !*.png, !lib/**'
+                              --sast-filter '!*README.md,!*app-hello-world*.js,!.github/workflows, !*.txt, !*.png, !lib/**,!.git/**'
                               --sca-filter 'packagers.config,lib/**'
                               --debug
                           
