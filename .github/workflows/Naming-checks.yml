@@ -1,0 +1,18 @@
+#Documentation at https://checkmarx.com/resource/documents/en/34965-68707-quick-start-guide---checkmarx-one-github-action.html
+name: Checkmarx One Scan
+on:
+  pull_request:
+    branches:
+      - main
+  #    - master
+  #    - dev
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check Name
+        run: echo ${{ github.repository }}
