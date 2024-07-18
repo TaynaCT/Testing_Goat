@@ -1,5 +1,5 @@
 #Documentation at https://checkmarx.com/resource/documents/en/34965-68707-quick-start-guide---checkmarx-one-github-action.html
-name: Checkmarx One Scan
+name: Checkmarx One Scan (SAST & SCA)
 on:
   #push:
   #  branches:
